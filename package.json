@@ -40,7 +40,7 @@
   "name": "ReutersCharter",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Matthew-Weber/ReutersCharter.git"
+    "url": "git+https://github.com/reuters-graphics/ReutersCharter.git"
   },
   "scripts": {
     "build": "rollup -c",
