@@ -1,3 +1,4 @@
+import _ from "lodash";
 import ReutersCharter from "ReutersCharter"
 let d3formatter = require("d3-format");
 let d3 = Object.assign(d3formatter, require("d3-fetch"), require("d3-time-format"), require("d3-scale"), require("d3-axis"), require("d3-color"), require("d3-path"), require("d3-selection"), require("d3-selection-multi"), require("d3-shape"), require("d3-transition"), require("d3-array"));

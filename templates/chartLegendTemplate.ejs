@@ -2,28 +2,28 @@
 	<div class="legend-ital"><%= gt.gettext('Hide/show') %></div>
 	<div class='dateTip'> 
 		<% 
-		if (data[0].displayDate){
-			print(data[0].displayDate)
-		}
-		if (data[0].category){
-			print(data[0].category)
-		}
-		if (!data[0].category && !data[0].displayDate){
-			print('<br>')
-		}%>
+		if (data[0].displayDate){%>
+			<%=data[0].displayDate%>
+		<%}
+		if (data[0].category){%>
+			<%=data[0].category%>
+		<%}
+		if (!data[0].category && !data[0].displayDate){%>
+			<br>
+		<%}%>
 	</div>
 	<div class="legend-items-holder">
 		<% data.forEach(function(d,i){%>
 			<div class="legendItems" data-id="<%=d.name%>">
-				<div class='circleTip <%=self.chartType%> <%if (self.chartLayout == "outlineBar" && i==1){%>outline<%}%>' style='background-color:<% print(self.colorScale(d.name))%>;'></div>
+				<div class='circleTip <%=self.chartType%> <%if (self.chartLayout == "outlineBar" && i==1){%>outline<%}%>' style='background-color:<%=self.colorScale(d.name)%>;'></div>
 				<div class="legendInline">
 					<div class="nameTip">	<%= d.displayName %></div>
 					<div class='valueTip'>
-						<% if (d[self.dataType]){
-							print(self.tipNumbFormat(d[self.dataType]))
-						}else{
-							print("<br>")
-						}%>
+						<% if (d[self.dataType]){%>
+							<%=self.tipNumbFormat(d[self.dataType])%>
+						<%}else{%>
+							<br>
+						<%}%>
 					</div>
 				</div>
 			</div>

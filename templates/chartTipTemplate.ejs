@@ -6,26 +6,27 @@
 	<div class='dateTip'> <%=data[0].category%> </div>
 <%}%>
 <%if (!data[0].category && !data[0].displayDate){%>
-	<div class='dateTip'> <%=data[0][this.xValue]%> </div>
+	<div class='dateTip'> <%=data[0][self.xValue]%> </div>
 <%}%>
 
 <%data.forEach(function(d,i){%>
 		<div class="tipHolder">
 			<%if(data.length > 1){%>
-				<div class='circleTip <%=this.chartType%> <%if (this.chartLayout == "outlineBar" && i==1){%>outline<%}%>' style='background-color:<% print(this.colorScale(d.name))%>;'></div>
+				<div class='circleTip <%=self.chartType%> <%if (self.chartLayout == "outlineBar" && i==1){%>outline<%}%>' style='background-color:<%=self.colorScale(d.name)%>;'></div>
 				<div class='nameTip'><%=d.displayName%></div>
 			<%}%>
 			<div class='valueTip'>
-				<%if (this.chartLayout == "stackPercent"){%>
-					<%print(this.tipNumbFormat(d.y1Percent - d.y0Percent))%>				
+				<%if (self.chartLayout == "stackPercent"){%>
+					<%=self.tipNumbFormat(d.y1Percent - d.y0Percent)%>				
 				<%}else{%>
-					<%print(this.tipNumbFormat(d[this.dataType]))%>				
+					<%=self.tipNumbFormat(d[self.dataType])%>				
 				<%}%>
 			</div>
 	
 		</div>
 <%})%>	
-<%if(this.timelineData){
-	var timelineData = this.timelineDataGrouped[this.timelineDate(data[0].date)]
-	print(this.timelineTemplate({data:timelineData, this:this}))
-}%>	
+<%if(self.timelineData){
+	var timelineData = self.timelineDataGrouped[self.timelineDate(data[0].date)]
+	%>
+	<%=self.timelineTemplate({data:timelineData, this:this})%>
+<%}%>	

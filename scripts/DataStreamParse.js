@@ -1,4 +1,5 @@
 const EventEmitter = require('events');        
+import _ from "lodash";
 
 
 class DataStreamParse extends EventEmitter {

@@ -1,3 +1,5 @@
+import $ from "jquery";
+import _ from "lodash";
 import EventEmitter from 'events'
 import relatedStoriesTemplate from '../templates/relatedStoriesTemplate.ejs'
 

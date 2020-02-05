@@ -1,3 +1,5 @@
+import $ from "jquery";
+import _ from "lodash";
 import EventEmitter from 'events'
 import { mcolor } from './color.js'
 let d3formatter = require("d3-format");
