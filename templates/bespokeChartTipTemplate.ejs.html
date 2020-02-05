@@ -1,0 +1,50 @@
+<%if (this.xValue == "category"  && this.tipValuesDisplay.category != "none"){ %>
+	<div class='dateTip'> <%=data[0].category%> </div>
+<%}%>
+<%if ((this.xValue == "date") && this.tipValuesDisplay.date != "none"){%>
+	<div class='dateTip'> <%=data[0].displayDate%> </div>
+<%}%>
+
+<%data.forEach(function(d,i){%>
+		<div class="tipHolder scatter">
+			<%if (this.colorValue && this.tipValuesDisplay.colorValue != "none"){%>							
+				<div class='colorTip'><%=d[this.colorValue]%></div>
+			<%}%>
+		</div>
+		<div class="tipHolder scatter">
+
+			<%if (this.xValue != "date" && this.xValue != "category" && this.tipValuesDisplay.xValue != "none"){%>
+				<div class='nameTip'><%=this.tipValuesDisplay.xValue%></div>
+				<div class='valueTip'><%=this.tipNumbFormat(d[this.xValue])%></div>
+			<%}%>
+		</div>
+		
+		<div class="tipHolder scatter">
+			<%if (this.yValue == "category"  && this.tipValuesDisplay.category != "none"){ %>
+				<div class='dateTip'> <%=data[0].category%> </div>
+			<%}%>
+		</div>
+
+		<div class="tipHolder scatter">
+			<%if ((this.yValue == "date") && this.tipValuesDisplay.date != "none"){%>
+				<div class='dateTip'> <%=data[0].displayDate%> </div>
+			<%}%>
+		</div>
+
+		<div class="tipHolder scatter">
+			
+			<%if (this.yValue != "date" && this.yValue != "category" && this.tipValuesDisplay.yValue != "none"){%>
+				<div class='nameTip'><%=this.tipValuesDisplay.yValue%></div>
+				<div class='valueTip'><%=this.tipNumbFormat(d[this.yValue])%></div>
+			<%}%>
+		</div>
+		<div class="tipHolder scatter">
+			<%if (this.rValue && this.tipValuesDisplay.rValue != "none"){%>
+				<div class='nameTip'><%=this.tipValuesDisplay.rValue%></div>
+				<div class='valueTip'><%=this.tipNumbFormat(d[this.rValue])%></div>
+			<%}%>
+		</div>
+		<%if (data.length > 1 && i != data.length -1){%>
+			<hr>
+		<%}%>
+<%})%>	
