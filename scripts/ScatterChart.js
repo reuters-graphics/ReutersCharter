@@ -1,3 +1,4 @@
+import EventEmitter from 'events'
 import $ from "jquery";
 import _ from "lodash";
 import { ChartBase } from './ChartBase.js'

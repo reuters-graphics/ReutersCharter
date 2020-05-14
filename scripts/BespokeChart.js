@@ -1,3 +1,4 @@
+import EventEmitter from 'events'
 import _ from "lodash";
 import ReutersCharter from "ReutersCharter"
 let d3formatter = require("d3-format");

@@ -1,3 +1,4 @@
+import EventEmitter from 'events'
 import $ from "jquery";
 import { ChartBase } from './ChartBase.js'
 let d3formatter = require("d3-format");
