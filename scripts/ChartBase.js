@@ -782,7 +782,7 @@ class ChartBase extends EventEmitter {
 					
 				},
 				[`${this.xOrY}1`]:() => {
-					if (this.horizontal || this.yAxisLineLength == "long" || this.yAxisLineLength == "short"){return 0;}
+					if (this.horizontal || this.yAxisLineLength == "long" || this.yAxisLineLength == "short" || this.yAxisLineLength == "none"){return 0;}
 					return -this.margin[this.leftOrTop];				
 				},
 				[`${this.xOrY}2`]:() =>{ 
@@ -1778,7 +1778,7 @@ class ChartBase extends EventEmitter {
 			.duration(duration)		
 			.attrs({
 				[`${this.xOrY}1`]:() => {
-					if (this.horizontal || this.yAxisLineLength == "long" || this.yAxisLineLength == "short"){return 0;}
+					if (this.horizontal || this.yAxisLineLength == "long" || this.yAxisLineLength == "short" || this.yAxisLineLength == "none"){return 0;}
 					return -this.margin[this.leftOrTop];				
 				},
 				[`${this.xOrY}2`]:() =>{ 
