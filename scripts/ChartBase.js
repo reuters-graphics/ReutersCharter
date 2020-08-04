@@ -1390,7 +1390,7 @@ class ChartBase extends EventEmitter {
 		//if you are in a side by side layout, has to figure out what set of data to look through.
 		if (this.chartLayout == "sideBySide"){
 			let eachChartWidth = (this[this.widthOrHeight] / this.numberOfObjects());
-			for (i = 0; i < this.numberOfObjects();  i++ ){
+			for (var i = 0; i < this.numberOfObjects();  i++ ){
 				if ((this.xPointCursor - this.margin[this.leftOrTop]) > eachChartWidth){
 					this.xPointCursor = this.xPointCursor - eachChartWidth;
 					this.widthsOver = this.widthsOver + eachChartWidth ;
