@@ -1193,6 +1193,8 @@ class ChartBase extends EventEmitter {
 				let $el = $(evt.currentTarget);
                 let thisID = $el.attr("dataid");
 
+				$el.addClass("active").siblings().removeClass("active")
+
                 let i = this.$(".chart-nav .btn").index($el)
 				//set the ytick labels to the right index in array, or to the first one, if not defined for this position.
 				if (this.YTickLabel[i]){
