@@ -1499,6 +1499,15 @@ class ChartBase extends EventEmitter {
 				if (this.horizontal){
 					tipWidth = this.$(".reuters-tooltip").outerHeight();
 				}
+				if (this.chartLayout == "sideBySide"){
+					let cursorPosition = this.scales.x(this.closestDate) + this.widthsOver + (this.widthOfBar() / 2)
+					if (cursorPosition < (this.margin[this.leftOrTop] + this[this.widthOrHeight] + this.margin[this.rightOrBottom]) / 2){
+						return (this.margin[this.leftOrTop] + this.scales.x(this.closestDate) + this.widthsOver + 30) + "px";
+					}else{
+						return ((this.scales.x(this.closestDate) + this.widthsOver) - tipWidth +15)  + "px";
+					}						
+
+				}
 				if (this.xPointCursor < (this.margin[this.leftOrTop] + this[this.widthOrHeight] + this.margin[this.rightOrBottom]) / 2){
 					return (this.margin[this.leftOrTop] + this.scales.x(this.closestDate) + this.widthsOver + 15) + "px";
 				}else{
