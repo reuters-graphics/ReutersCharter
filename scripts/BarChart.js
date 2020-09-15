@@ -140,6 +140,10 @@ class BarChart extends ChartBase {
 		if ( isNaN(d[this.dataType])){
 			return 0;				
 		}
+		if (d.name == this.rightBarCol) {	
+			return  this.width - (Math.abs(this.scales.y(d.y0Total) - this.scales.y(d.y1Total)));
+		}	
+
 		let positioner = "y1";
 		if ((this.horizontal || d.y1Total < 0) && !textPosition){ positioner = "y0";}
 		if (this.horizontal && d.y1Total < 0 ){ positioner = "y1";}
@@ -524,6 +528,11 @@ class BarChart extends ChartBase {
 					}
 					return this.scales.y(d[this.dataType] + parseFloat(d[this.moeColumn]))
 				}
+				
+				if (d.name == this.rightBarCol) {
+					return this.width - (Math.abs(this.scales.y(d.y0Total) - this.scales.y(d.y1Total))) - this.scales.y(d[this.moeColumn])
+				}
+
 				if (d.name == this.leftBarCol) {
 					return this.scales.y(d["y1Total"]) - this.scales.y(d[this.moeColumn]);
 				}
@@ -631,6 +640,11 @@ class BarChart extends ChartBase {
 				if (d.name == this.leftBarCol) {
 					return this.scales.y(d["y1Total"]) - this.scales.y(d[this.moeColumn]);
 				}
+
+				if (d.name == this.rightBarCol) {
+					return this.width - (Math.abs(this.scales.y(d.y0Total) - this.scales.y(d.y1Total))) - this.scales.y(d[this.moeColumn])
+				}
+				
 				return this.scales.y(d["y0Total"]) - this.scales.y(d[this.moeColumn]);
 			})
 			.attr(this.heightOrWidth, (d) => { 
