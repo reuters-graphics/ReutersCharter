@@ -71,7 +71,11 @@ class BarChart extends ChartBase {
 		if (this.chartLayout == "stackTotal"){theValues = "stackTotal";}
 		let max = d3.max(this.chartData, (c) => (d3.max(c.values, (v) => v[theValues] ) ) );
 		if (this.chartLayout == "stackPercent"){max = 100;}
-		if (max < 0){ max = 0;}		
+		if (max < 0){ max = 0;}	
+
+		if (this.moeColumn){
+			max = max + d3.max(this.chartData, (c) => (d3.max(c.values, (v) => v[this.moeColumn] ) ) )
+		}	
 		return max;
 	}
 	

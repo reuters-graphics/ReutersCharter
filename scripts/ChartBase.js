@@ -630,9 +630,9 @@ class ChartBase extends EventEmitter {
 				return 100;
 			}
 			this.categorySort= "none";
-			this.yScaleVals= [0,25,50,75,100];
+			this.yScaleVals= [0,50,100];
 			this.groupSort=this.legendItemsArray;
-			this.YTickLabel= [[gettext(""),gettext("%")]];
+			this.YTickLabel= [[gettext(""),gettext("")]];
 		}		
 		
 	}
@@ -887,7 +887,15 @@ class ChartBase extends EventEmitter {
 			let axisForm = d3.format(`,.${decimal}f`)
 			s = axisForm(d)
 		}
-
+		
+		if (this.leftBarCol){
+			if (s == "0" || s == "100"){
+				return ""
+			}
+			if (s == "50"){
+				return "50%"
+			}
+		}
 		if (this.horizontal){
 			return nodes[i].parentNode.nextSibling
 				? "\xa0" + s
@@ -1193,8 +1201,6 @@ class ChartBase extends EventEmitter {
 				let $el = $(evt.currentTarget);
                 let thisID = $el.attr("dataid");
 
-				$el.addClass("active").siblings().removeClass("active")
-
                 let i = this.$(".chart-nav .btn").index($el)
 				//set the ytick labels to the right index in array, or to the first one, if not defined for this position.
 				if (this.YTickLabel[i]){
@@ -1392,7 +1398,7 @@ class ChartBase extends EventEmitter {
 		//if you are in a side by side layout, has to figure out what set of data to look through.
 		if (this.chartLayout == "sideBySide"){
 			let eachChartWidth = (this[this.widthOrHeight] / this.numberOfObjects());
-			for (var i = 0; i < this.numberOfObjects();  i++ ){
+			for (i = 0; i < this.numberOfObjects();  i++ ){
 				if ((this.xPointCursor - this.margin[this.leftOrTop]) > eachChartWidth){
 					this.xPointCursor = this.xPointCursor - eachChartWidth;
 					this.widthsOver = this.widthsOver + eachChartWidth ;
@@ -1498,15 +1504,6 @@ class ChartBase extends EventEmitter {
 
 				if (this.horizontal){
 					tipWidth = this.$(".reuters-tooltip").outerHeight();
-				}
-				if (this.chartLayout == "sideBySide"){
-					let cursorPosition = this.scales.x(this.closestDate) + this.widthsOver + (this.widthOfBar() / 2)
-					if (cursorPosition < (this.margin[this.leftOrTop] + this[this.widthOrHeight] + this.margin[this.rightOrBottom]) / 2){
-						return (this.margin[this.leftOrTop] + this.scales.x(this.closestDate) + this.widthsOver + 30) + "px";
-					}else{
-						return ((this.scales.x(this.closestDate) + this.widthsOver) - tipWidth +15)  + "px";
-					}						
-
 				}
 				if (this.xPointCursor < (this.margin[this.leftOrTop] + this[this.widthOrHeight] + this.margin[this.rightOrBottom]) / 2){
 					return (this.margin[this.leftOrTop] + this.scales.x(this.closestDate) + this.widthsOver + 15) + "px";
