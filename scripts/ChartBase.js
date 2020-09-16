@@ -633,6 +633,11 @@ class ChartBase extends EventEmitter {
 			this.yScaleVals= [0,50,100];
 			this.groupSort=this.legendItemsArray;
 			this.YTickLabel= [[gettext(""),gettext("")]];
+	        this.tipNumbFormat =  (d) =>  {      
+		         if (isNaN(d) === true){return "N/A";}else{
+		             return this.dataLabels[0] + this.numbFormat(d) + "%" + this.dataLabels[1] ;             
+		         }               
+	        },			
 		}		
 		
 	}
