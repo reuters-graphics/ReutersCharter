@@ -12,6 +12,7 @@
     "d3-svg-annotation": "^2.5.1",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
+    "popper.js": "^1.16.1",    
     "textures": "^1.2.2" 	  
   },
   "deprecated": false,
@@ -49,5 +50,5 @@
     "pub": "np",
     "test": "xo src/**/*.js && xo tests/**/*.js && tape tests/**/*.js | faucet"
   },
-  "version": "1.1.15"
+  "version": "1.1.16"
 }
