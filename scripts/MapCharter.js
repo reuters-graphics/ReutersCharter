@@ -256,9 +256,11 @@ class MapCharter extends EventEmitter {
     		.attr("fill", (d) => {
 				return this.geographyFill(d);
     		})
+/*
     		.attr("title", (d) => {
 	    		return this.tooltipTemplate({d:d, self:this});
     		});
+*/
 		
 	}
 	
@@ -296,6 +298,8 @@ class MapCharter extends EventEmitter {
 	}
 	
 	renderTooltips(){
+		return
+/*
 		this.$('.geography').tooltip({
             html: true, 
             constraints: [
@@ -306,6 +310,7 @@ class MapCharter extends EventEmitter {
                 }
               ]
         });
+*/
 	}
 	
 	geographyFill(d){

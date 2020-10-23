@@ -1,5 +1,6 @@
 import _ from "lodash"
 import $ from "jquery";
+import { t } from "ttag";
 import EventEmitter from 'events'
 import { mcolor } from './color.js'
 let d3formatter = require("d3-format");
@@ -1503,7 +1504,7 @@ class ChartBase extends EventEmitter {
 	updateTooltipContent(){
 		//update the html of the tooltip, and also position it.  logic decides if it's left or right of line, above or below cursor point.
 		this.tooltip
-			.html( (d) => this.tipTemplate({self:this, data:this.makeTipData()}) )
+			.html( (d) => this.tipTemplate({t:t,self:this, data:this.makeTipData()}) )
 			.style(this.leftOrTop, (d) => {
 				let tipWidth = this.$(".reuters-tooltip").outerWidth();
 

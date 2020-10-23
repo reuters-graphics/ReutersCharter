@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 import $ from "jquery";
 import _ from "lodash";
+import { t } from "ttag";
 import { ChartBase } from './ChartBase.js'
 let d3formatter = require("d3-format");
 let d3 = Object.assign(d3formatter, require("d3-fetch"), require("d3-time-format"), require("d3-scale"), require("d3-axis"), require("d3-color"), require("d3-path"), require("d3-selection"), require("d3-selection-multi"), require("d3-shape"), require("d3-transition"), require("d3-array"));
@@ -333,7 +334,7 @@ class ScatterChart extends ChartBase {
 			.style("stroke", (d) => this.setStroke(d))
 			
 		if (this.simpleTips){
-			this.scatterPlot.attr("title", (d) => this.tipTemplate({self:this, data:[d]}) )
+			this.scatterPlot.attr("title", (d) => this.tipTemplate({self:this, data:[d],t:t}) )
 		
 			this.$(".scatter-dot").tooltip({html:true})
 		}
@@ -376,7 +377,7 @@ class ScatterChart extends ChartBase {
 			})
 			.attr("title", (d) => {
 				if (this.simpleTips){
-					return this.tipTemplate({self:this, data:[d]}) 
+					return this.tipTemplate({self:this, data:[d],t:t}) 
 				}
 			})
 				
@@ -416,7 +417,7 @@ class ScatterChart extends ChartBase {
 			})
 			.attr("title", (d) => {
 				if (this.simpleTips){
-					return this.tipTemplate({self:this, data:[d]}) 
+					return this.tipTemplate({self:this, data:[d],t:t}) 
 				}
 			})
 				
