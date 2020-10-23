@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 import $ from "jquery";
-import Tooltip from "bootstrap";
+//import Tooltip from "bootstrap";
 import _ from "lodash";
 import { t } from "ttag";
 import { ChartBase } from './ChartBase.js'
